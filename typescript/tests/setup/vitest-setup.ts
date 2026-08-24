@@ -3,7 +3,10 @@ import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-loadEnv({ path: resolve(__dirname, '../../../../../core/typescript/.env') });
+loadEnv({ path: resolve(__dirname, '../../.env') });
+if (!process.env.TEST_DATABASE_URL && !process.env.DATABASE_URL) {
+  loadEnv({ path: resolve(__dirname, '../../../../../core/typescript/.env') });
+}
 
 if (!process.env.TEST_DATABASE_URL && process.env.DATABASE_URL) {
   process.env.TEST_DATABASE_URL = process.env.DATABASE_URL;

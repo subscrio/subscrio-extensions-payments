@@ -1,2 +1,9 @@
 <Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Subscrio.Payments.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Subscrio.Payments.Tests.csproj" />
+  </Folder>
+  <Project Path="../../../core/dotnet/src/Subscrio.Core.csproj" />
 </Solution>

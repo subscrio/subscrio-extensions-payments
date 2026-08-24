@@ -69,12 +69,14 @@ await payments.list({
 
 ## Development
 
+From this directory (`typescript/`):
+
 ```bash
 npm install
 npm run build
 npm test
 ```
 
-Also included when you run `npm test` from the [subscrio-typescript](https://github.com/subscrio/subscrio-typescript) repository when extensions are linked locally.
+`npm install` resolves the `subscrio` peer from the hub checkout at `core/typescript`. Check out the [hub workspace layout](https://github.com/subscrio/subscrio/blob/main/repos.md) first. Core tests in [subscrio-typescript](https://github.com/subscrio/subscrio-typescript) do not run this suite.
 
-Tests create a fresh Postgres database (uses `TEST_DATABASE_URL` or `typescript/.env`).
+Tests create a fresh Postgres database. Set `TEST_DATABASE_URL`, add a `typescript/.env`, or use default localhost credentials (`postgresql://postgres:postgres@localhost:5432/postgres`). In the hub workspace, `core/typescript/.env` is also loaded when those are unset.
