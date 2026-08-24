@@ -1,0 +1,29 @@
+# TypeScript
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# .NET build output
+[Bb]in/
+[Oo]bj/
+.vs/
+*.nupkg
+*.snupkg
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pfx
+*.pem
+secrets.json
+appsettings.Secrets.json
+dotnet/tests/appsettings.json
+dotnet/tests/appsettings.Development.json
+
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+*.log

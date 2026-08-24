@@ -1,0 +1,25 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.nupkg
+*.snupkg
+TestResult.xml
+*.trx
+*.coverage
+.idea/
+
+# Test database config (may contain credentials)
+tests/appsettings.json
+tests/appsettings.Development.json
+
+# Keys and secrets
+secrets.json
+appsettings.Secrets.json
