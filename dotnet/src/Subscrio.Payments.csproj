@@ -10,7 +10,7 @@
 
   <PropertyGroup>
     <PackageId>Subscrio.Payments</PackageId>
-    <Version>1.0.4</Version>
+    <Version>0.3.1</Version>
     <Authors>Subscrio</Authors>
     <Description>Payments extension for Subscrio.Core. Records Stripe invoice.payment_succeeded amounts in PostgreSQL via stripe.received.after.</Description>
     <PackageTags>subscrio;payments;stripe;invoice;postgresql</PackageTags>
