@@ -1,6 +1,6 @@
 {
   "name": "subscrio-payments",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Payments extension for Subscrio — records Stripe invoice.payment_succeeded amounts via stripe.received.after",
   "author": "Subscrio Team",
   "license": "MIT",
@@ -45,7 +45,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "subscrio": "*"
+    "subscrio": ">=0.4.0 <0.5.0"
   },
   "dependencies": {
     "pg": "^8.23.0",

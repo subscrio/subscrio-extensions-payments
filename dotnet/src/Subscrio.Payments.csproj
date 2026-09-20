@@ -10,7 +10,7 @@
 
   <PropertyGroup>
     <PackageId>Subscrio.Payments</PackageId>
-    <Version>0.3.1</Version>
+    <Version>0.4.0</Version>
     <Authors>Subscrio</Authors>
     <Description>Payments extension for Subscrio.Core. Records Stripe invoice.payment_succeeded amounts in PostgreSQL via stripe.received.after.</Description>
     <PackageTags>subscrio;payments;stripe;invoice;postgresql</PackageTags>
@@ -22,7 +22,11 @@
     <NoWarn>$(NoWarn);1591</NoWarn>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <ItemGroup>

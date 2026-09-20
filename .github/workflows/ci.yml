@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - name: Check out extension
+        uses: actions/checkout@v7
+        with:
+          path: extensions/payments
+
+      - name: Check out TypeScript core
+        uses: actions/checkout@v7
+        with:
+          repository: subscrio/subscrio-typescript
+          path: core/typescript
+
+      - name: Check out .NET core
+        uses: actions/checkout@v7
+        with:
+          repository: subscrio/subscrio-dotnet
+          path: core/dotnet
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20.19.0
+          cache: npm
+          cache-dependency-path: extensions/payments/typescript/package-lock.json
+
+      - name: Install, type-check, build, and test TypeScript
+        working-directory: extensions/payments/typescript
+        run: |
+          npm ci
+          npm run typecheck
+          npm run build
+          npm test
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Build and test .NET
+        working-directory: extensions/payments/dotnet
+        run: |
+          dotnet restore Subscrio.Payments.slnx
+          dotnet build Subscrio.Payments.slnx --configuration Release --no-restore
+          dotnet test Subscrio.Payments.slnx --configuration Release --no-build
+
+      - name: Pack .NET
+        working-directory: extensions/payments/dotnet
+        run: dotnet pack src/Subscrio.Payments.csproj --configuration Release --no-build --output artifacts
