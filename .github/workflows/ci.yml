@@ -51,7 +51,13 @@ jobs:
         with:
           node-version: 20.19.0
           cache: npm
-          cache-dependency-path: extensions/payments/typescript/package-lock.json
+          cache-dependency-path: |
+            core/typescript/package-lock.json
+            extensions/payments/typescript/package-lock.json
+
+      - name: Install and build TypeScript core
+        working-directory: core/typescript
+        run: npm ci
 
       - name: Install, type-check, build, and test TypeScript
         working-directory: extensions/payments/typescript
