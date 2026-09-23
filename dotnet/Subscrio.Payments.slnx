@@ -5,5 +5,4 @@
   <Folder Name="/tests/">
     <Project Path="tests/Subscrio.Payments.Tests.csproj" />
   </Folder>
-  <Project Path="../../../core/dotnet/src/Subscrio.Core.csproj" />
 </Solution>
