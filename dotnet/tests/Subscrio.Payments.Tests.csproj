@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\Subscrio.Payments.csproj" />
-    <ProjectReference Include="..\..\..\..\core\dotnet\src\Subscrio.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

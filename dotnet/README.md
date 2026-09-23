@@ -89,6 +89,6 @@ dotnet build
 dotnet test
 ```
 
-Local builds resolve `Subscrio.Core` from the hub checkout at `core/dotnet`. Check out the [hub workspace layout](https://github.com/subscrio/subscrio/blob/main/repos.md) first. Core tests in [subscrio-dotnet](https://github.com/subscrio/subscrio-dotnet) do not run this suite.
+Builds and tests use published `Subscrio.Core` 0.5.1 by default. In the [hub workspace](https://github.com/subscrio/subscrio/blob/main/repos.md), pass `-p:UseLocalSubscrioCore=true` to build against the local core checkout instead. Core tests in [subscrio-dotnet](https://github.com/subscrio/subscrio-dotnet) do not run this suite.
 
 Tests create a fresh Postgres database. Set `TEST_DATABASE_URL`, copy `tests/appsettings.example.json` to `tests/appsettings.json`, or use default localhost credentials (`postgres` / `postgres`).

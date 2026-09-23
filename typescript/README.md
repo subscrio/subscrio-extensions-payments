@@ -77,6 +77,6 @@ npm run build
 npm test
 ```
 
-`npm install` resolves the `subscrio` peer from the hub checkout at `core/typescript`. Check out the [hub workspace layout](https://github.com/subscrio/subscrio/blob/main/repos.md) first. Core tests in [subscrio-typescript](https://github.com/subscrio/subscrio-typescript) do not run this suite.
+`npm install` installs published `subscrio@0.5.0` for development and compatibility tests. Core tests in [subscrio-typescript](https://github.com/subscrio/subscrio-typescript) do not run this suite.
 
 Tests create a fresh Postgres database. Set `TEST_DATABASE_URL`, add a `typescript/.env`, or use default localhost credentials (`postgresql://postgres:postgres@localhost:5432/postgres`). In the hub workspace, `core/typescript/.env` is also loaded when those are unset.
